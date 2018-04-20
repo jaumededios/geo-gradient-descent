@@ -1,53 +1,53 @@
 <!DOCTYPE html>
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-<script type="text/javascript" src="script.js"></script>
-<link rel="stylesheet" type="text/css" href="style.css">
-<html lang="en">
+<html>
   <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="test1.css">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <title>Geographic optimization sandbox</title>
   </head>
   <body>
     <img src = 'compressed.png' style = 'display: none', id = 'height_data'>
-    <div id='applet'>
-    	<div id='map_holder'>
-        <canvas id = 'drawing_canvas' style="z-index: 100"> </canvas>
-    	</div>
-    	<div id = 'control_holder'>
-    		  <div id= 'initial_value'>
-    			 Initial location: (<input type="text" class="number_in" id = 'x' value = '300'>,<input type="text" class="number_in" id = 'y' value = '1200'>) <span class = 'button algorithms' onclick="randomize()">Randomize</span>.
+    <div id = 'container'>
+      <div id="controls"> 
+        <div id = "algorithm_controls">
+          <div class = 'title'>Optimization Algorithm: </div>     
+
+          <select name="cars" onchange="load_method(this.value)">
+              <option value="gdesc">Gradient Descent</option>
+              <option value="moment">Moment Method</option>
+              <option value="custom">Custom</option>
+          </select>
+
+          <div class = 'title'>Function:</div>
+          <div class = 'code_area' id = 'function_text' contenteditable="true"></div>
+
+          <div class = 'title'>Initialization Parameters: </div>
+          <div class = 'code_area' id = 'params_text' contenteditable="true"></div>
+
+          <div class = 'title'>Optimization Parameters: </div> 
+
+          <div id= 'initial_value' class = 'control_div'>
+           Initial location: (<input type="text" class="number_in" id = 'x' value = '300'>,
+                              <input type="text" class="number_in" id = 'y' value = '1200'>)
           </div>
 
-          <div id = 'maxits_holder'>
-            Number of Iterations:  <input type="text" class="number_it" value="1000" id = 'nits'>
+          <div id = 'nits_holder' class = 'control_div'>
+            Number of Iterations:  <input type="text" class="number_in" value="1000" id = 'nits'>
           </div>
-    			
-          <div id = 'function_holder'>
-            Function: 
-            <textarea class = 'code_area' id = 'function_text'></textarea>
-          </div>
-    			
-          <div id = 'init_params_holder'>
-    			Initialization Parameters:
-            <textarea class = 'code_area' id = 'params_text'></textarea>
-          </div>
-
-          <div id = 'preset_algorithms'>
-            <span class = 'button algorithms' onclick="load_method('gdesc')">Gradient Descent</span>
-            <span class = 'button algorithms' onclick="load_method('moment')">Moment method</span>
-            <span class = 'button algorithms' onclick="load_method('custom')">Custom</span>
-          </div>
-
-
-
-
-
-    			<div>
-            <span class = 'button run' onclick="run()">Run</span>
-            <span class = 'button run' onclick="randomize();run()">Run from random position</span>
-            <span class = 'button run' onclick="drawing_canvas.width = drawing_canvas.width">Reset canvas</span>
-          </div>
-    	</div>
+        </div>
+        <div id = 'user_buttons' style = 'width: 100%'>
+            <div class = 'button run' onclick="run()">Run</div>
+            <div class = 'button run' onclick="randomize();run()" style="width: 100%">Run from random position</div>
+            <div class = 'button run' onclick="clear_markers()">Reset canvas</div>
+        </div>
+      </div>
+      <div id="map"></div>
     </div>
+    <script src="test1.js"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALYcYghBCk1siCkKSYdUORf7RhgYRuApk&callback=initMap">
+    </script>
   </body>
 </html>

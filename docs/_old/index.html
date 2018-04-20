@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<script type="text/javascript" src="script.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Geographic optimization sandbox</title>
+  </head>
+  <body>
+    <img src = 'compressed.png' style = 'display: none', id = 'height_data'>
+    <div id='applet'>
+      <div id='map_holder'>
+        
+          <div id = 'user_buttons' style="z-index: 200; bottom: 0; position: absolute; right:0;margin-bottom: 5px">
+            <span class = 'button run' onclick="run()">Run</span>
+            <span class = 'button run' onclick="randomize();run()">Run from random position</span>
+            <span class = 'button run' onclick="drawing_canvas.width = drawing_canvas.width">Reset canvas</span>
+          </div>
+      </div>
+    	<div id = 'control_holder'>
+          <div id = 'preset_algorithms' style="margin-bottom: 20px">
+          <div style = 'margin-bottom: 10px'>Optimization Algorithm: </div>
+          <select name="cars" onchange="load_method(this.value)">
+              <option value="gdesc">Gradient Descent</option>
+              <option value="moment">Moment Method</option>
+              <option value="custom">Custom</option>
+          </select>
+          </div>
+
+    		  <div id= 'initial_value'>
+    			 Initial location: (<input type="text" class="number_in" id = 'x' value = '300'>,
+                              <input type="text" class="number_in" id = 'y' value = '1200'>)
+          </div>
+
+          <div id = 'nits_holder'>
+            Number of Iterations:  <input type="text" class="number_it" value="1000" id = 'nits'>
+          </div>
+    			
+          <div id = 'function_holder'>
+            Function: <textarea class = 'code_area' id = 'function_text'></textarea>
+          </div>
+    			
+          <div id = 'init_params_holder'>
+    			Initialization Parameters: <textarea class = 'code_area' id = 'params_text'></textarea>
+          </div>
+
+    	</div>
+    </div>
+<canvas id = 'drawing_canvas' style="display: none;"> </canvas>
+  </body>
+</html>

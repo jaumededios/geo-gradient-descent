@@ -1,0 +1,67 @@
+    body {
+      font-family: 'Roboto';
+    }
+    .number_in {
+      background-color: white;
+      padding: 2px;
+      width: 4em;
+      margin:none;
+    }
+  	#applet {
+  		width: 800px;
+  		margin:0 auto;
+		  outline:0;
+  	}
+
+  	#map_holder {∫
+      margin:20px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+  	}
+  	#control_holder {
+      padding:20px;
+      border: 2px;
+      border-style: solid;
+      border-color: black;
+      border-radius: 4px;
+      position:relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: 
+        "preset_algorithms preset_algorithms"
+        "function_holder init_params_holder"
+        "initial_value nits_holder";
+      outline:0;
+  	}
+
+    #initial_value{grid-area: initial_value;}
+    #nits_holder{grid-area: nits_holder;}
+    #preset_algorithms{grid-area: preset_algorithms;}
+    #function_holder{grid-area: function_holder;}
+    #init_params_holder{grid-area: init_params_holder;}
+
+
+    #map_holder>canvas{
+      width:100%;
+      
+    }
+    .code_area{
+      display: block;
+      width:95%;
+      resize: vertical;
+      min-height: 15em;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+
+    .button {
+      background-color: #990000;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      display: inline-block;
+      font-size: 16px;
+      cursor:pointer;
+    }
