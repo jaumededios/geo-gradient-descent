@@ -13,12 +13,13 @@
       <div id="controls"> 
         <div id = "algorithm_controls">
           <div class = 'title'>Optimization Algorithm: </div>     
-
+          <div>
           <select name="cars" onchange="load_method(this.value)">
               <option value="gdesc">Gradient Descent</option>
               <option value="moment">Moment Method</option>
               <option value="custom">Custom</option>
           </select>
+          </div>
 
           <div class = 'title'>Function:</div>
           <div class = 'code_area' id = 'function_text' contenteditable="true"></div>
