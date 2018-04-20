@@ -6,5 +6,21 @@
   </head>
   <body>
     <h1>It's working!</h1>
+    <img src = 'compressed.png' style = 'display: none', id = 'height_data'>
   </body>
+  <script type="text/javascript"> 	
+  	var canvas = false;
+  	function get_canvas (){
+  		if(canvas) return canvas
+	  	var img = document.getElementById('height_data');
+		canvas = document.createElement('canvas');
+		canvas.width = img.width;
+		canvas.height = img.height;
+		canvas.getContext('2d').drawImage(img, 0, 0, img.width, img.height);
+	}
+	window.onload = function(){
+		get_canvas()
+		document.body.appendChild(canvas)
+	}
+  </script>
 </html>
