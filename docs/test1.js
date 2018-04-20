@@ -116,13 +116,15 @@ function clear_markers(){
         map = new google.maps.Map(document.getElementById('map'), {
           zoom: 8,
           center: {lat: 42.5, lng: 2.5},
-          mapTypeId: 'terrain'
+          mapTypeId: 'terrain',
+          keyboardShortcuts : false
         });
         google.maps.event.addListener(map, 'click', function(event) {
            var latlng = {'lat':event.latLng.lat(),'lng':event.latLng.lng()}
            var px =coords2px(latlng)
            document.getElementById('x').value = px[0];
            document.getElementById('y').value = px[1];
+           run()
         });
       }
 
